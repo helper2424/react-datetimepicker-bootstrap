@@ -12,6 +12,7 @@ class DateTimePicker extends Component {
     ]),
     placeholder: PropTypes.string,
     locale: PropTypes.string,
+    defaultValue: PropTypes.string, 
     format: PropTypes.string,
     minDate: PropTypes.arrayOf(
       PropTypes.oneOfType([
@@ -75,6 +76,7 @@ class DateTimePicker extends Component {
     hasFeedback: false,
     calendarWeeks: false,
     toolbarPlacement: 'default',
+    defaultValue: '',
     tooltips: {
       today: 'Go to today',
       clear: 'Clear selection',
@@ -200,7 +202,8 @@ class DateTimePicker extends Component {
       disabled,
       required,
       hasFeedback,
-      icon
+      icon,
+      defaultValue
     } = this.state
     const labelText = (label) ?
       <label className="control-label" htmlFor={id}>{label}</label> : null
@@ -221,6 +224,7 @@ class DateTimePicker extends Component {
             required={required}
             disabled={disabled}
             placeholder={placeholder}
+            defaultValue={defaultValue}
           />
           {this.iconSet('right')}
         </div>
